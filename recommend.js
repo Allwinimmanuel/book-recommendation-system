@@ -26,7 +26,7 @@ function recommendBooks() {
 
   if (!found) {
     const li = document.createElement("li");
-    li.textContent = "No recommendations found for this book.";
+    li.textContent = "No recommendations found for this genre.";
     li.className = "no-result";
     outputList.appendChild(li);
   }
