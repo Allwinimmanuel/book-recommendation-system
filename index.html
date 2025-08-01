@@ -1,3 +1,87 @@
-<h2>Book Recommendation System</h2>
-<input type="text" placeholder="Enter book or genre" />
-<button>Get Recommendation</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>📚 Book Recommendation System</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    input {
+      padding: 10px;
+      width: 80%;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    button:hover {
+      background-color: #005fa3;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+
+    li {
+      background-color: #eef6ff;
+      padding: 8px;
+      margin-bottom: 5px;
+      border-radius: 5px;
+    }
+
+    .no-result {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📚 Book Recommender</h1>
+    <input type="text" id="genreInput" placeholder="Enter genre (e.g., fiction, science)">
+    <br/><br/>
+    <button onclick="recommendBooks()">Get Recommendation</button>
+
+    <ul id="output"></ul>
+  </div>
+
+  <script src="recommend.js"></script>
+</body>
+</html>
