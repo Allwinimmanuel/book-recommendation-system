@@ -1,4 +1,3 @@
-// Book database organized by genre
 const books = {
   fiction: ["1984", "The Great Gatsby", "To Kill a Mockingbird"],
   science: ["A Brief History of Time", "Sapiens", "The Selfish Gene"],
@@ -7,27 +6,27 @@ const books = {
   romance: ["Pride and Prejudice", "Me Before You", "The Notebook"]
 };
 
-// Function to handle recommendation based on genre input
 function recommendBooks() {
   const input = document.getElementById("genreInput").value.trim().toLowerCase();
   const outputList = document.getElementById("output");
-
-  // Clear any previous results
   outputList.innerHTML = "";
 
-  const recommendations = books[input];
+  let found = false;
 
-  if (recommendations) {
-    // Display each recommended book as a list item
-    recommendations.forEach(book => {
+  for (let genre in books) {
+    const match = books[genre].find(book => book.toLowerCase() === input);
+    if (match) {
       const li = document.createElement("li");
-      li.textContent = book;
+      li.innerHTML = `<strong>${match}</strong> belongs to <strong>${genre}</strong> genre.`;
       outputList.appendChild(li);
-    });
-  } else {
-    // Display "No recommendations found" if genre doesn't match
+      found = true;
+      break;
+    }
+  }
+
+  if (!found) {
     const li = document.createElement("li");
-    li.textContent = "No recommendations found for this genre.";
+    li.textContent = "No recommendations found for this book.";
     li.className = "no-result";
     outputList.appendChild(li);
   }
